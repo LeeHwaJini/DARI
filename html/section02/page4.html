@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPT 결과지 &copy;에이블에듀테크</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<script src="../../@resource/js/jquery-1.12.4.min.js"></script>
+	<script src="../../@resource/js/jquery-ui.js"></script>
+    <script src="../../@resource/plugin/chart/"></script>
+    <script src="../../@resource/plugin/chart/highcharts.js"></script>
+    <script src="../../@resource/plugin/chart/highcharts-more.js"></script>
+    <script src="../../@resource/plugin/chart/modules/funnel.js"></script>
+	<script src="../../@resource/plugin/chart/modules/solid-gauge.js"></script>
+    <script src="../../@resource/plugin/chart/modules/accessibility.js"></script>
+    <script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+	<script src="../../@resource/js/able.js"></script>
+	<link rel="stylesheet" href="../../@resource/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../@resource/css/chart.css">
+    <link rel="stylesheet" href="../../@resource/css/chart-custom.css">
+    <link rel="stylesheet" href="../../@resource/css/common.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/* 합격률이 높은 대학 */
+			var array_university_top3 = [{
+				name: '세명대학교',
+				y: 68.33,
+			},{
+				name: '경일대학교',
+				y: 66.27,
+			},{
+				name: '위덕대학교',
+				y: 60.8,
+			},{
+				name: '나의성적',
+				y: 64.3,
+			}];
+
+			function loadText(){
+				$(".chart08").find(".highcharts-axis-labels.highcharts-xaxis-labels text").each(
+					function(i){
+					$(this).parents(".chart08").find(".data-text").append("<li>"+$(this).html()+"</li>");
+				});
+			}
+
+			Highcharts.chart('container-university-top01', {
+				chart: {type: 'column',styledMode:true,},
+				title: {align: 'left',text: ''},
+				subtitle: {align: 'left',text: ''},
+				xAxis: {
+					type: 'category',
+					labels: {
+						formatter: function() {
+							var label = this.chart.series[0].userOptions.data[this.pos].y;
+							if(this.pos==3)
+							{
+								return "<span>"+label+"%"+"</span>";    
+							}
+							return this.value+"<span>"+label+"%"+"</span>";
+						}
+					}
+				},
+				yAxis: {
+					title: {
+						text: ''
+					},
+					gridLineWidth: 0,
+					plotLines: [{
+						color: '#fe7511',
+						width: 1,
+						value: array_university_top3[3].y
+					}],
+					labels:{enabled:false}
+				},
+				legend: {
+					enabled: false
+				},
+				plotOptions: {
+					column: {stacking: 'normal',pointWidth:30,pointPlacement:'between',stickyTracking:false,},
+					series: {
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							useHTML:true,
+							formatter : function() {
+								if(this.colorIndex==3)
+								{
+									return '<span>'+this.key+'</span>';    
+								}
+								var val = (parseFloat(this.y)- parseFloat(array_university_top3[3].y)).toFixed(2);
+								return  val + ' <span>%</span>';     // y축 단위
+							}
+							//format: '{point.y:.1f}%'
+						}
+					}
+				},
+				tooltip: {
+					enabled:false
+				},
+				series: [
+					{
+						colorByPoint: true,
+						data: array_university_top3
+					}
+				],
+			});
+			loadText();
+			/* 합격률높은대학 Line Chart */
+			/* 합격률높은대학 Line Chart */
+			var university_line_top5_val = {
+				chart: { type: 'line' ,styledMode:true },
+				title: { text: '' },
+				xAxis: { categories: ['', '', '', '', ''], labels:{enabled:true}, gridLineWidth: 0 },
+				yAxis: { title: { text: '' }, min: -4, max: 4, gridLineWidth: 0, labels:{enabled:false}, 
+					plotLines: [{color: '#000000',width: 1,value: 0,
+					label: {useHTML:true, data:'64.32',
+						formatter : function() { return '<span class="title">나의 등급</span><div class="value">'+this.options.label.data+'<span class="text">%</span></div>'; },
+						y:0,x:-10,
+					}
+					}],
+				},
+				legend: { enabled: false }, 
+				plotOptions: { line: { dataLabels: { enabled: true }, enableMouseTracking: true,color:'#000000',width:1},
+					series: { dataLabels: { enabled: true, align: 'center',y: -20,
+							formatter : function() { var val = this.y; return ((parseFloat(val)>0)?"+":"")+ (val).toFixed(2) + '  %'; }}
+					}
+				}
+			};
+
+			Highcharts.chart('container-university-line01', $.extend(true,university_line_top5_val,{
+				xAxis: { categories: ['건설시스템공학', '건축공학전공', '식품공학', '환경공학', '건축학전공']},
+				yAxis: { min: -0.5, max: 0.5, plotLines:[{data:'12.2'}]},
+				series: [{ data: [0.43, 0.23, 0.23, 0.23, 0.23]}]
+			}));
+			Highcharts.chart('container-university-line02', $.extend(true,university_line_top5_val,{
+				xAxis: { categories: ['간호학과(일반)', '간호학과', '의공학과', '물리치료학과', '방사선학과']},
+				yAxis: { min: -3, max: 5.1, },
+				series: [{ data: [3.10, 2.43, -1.23, -1.57, -2.57]}]
+			}));
+
+			Highcharts.chart('container-university-line03', $.extend(true,university_line_top5_val,{
+				xAxis: { categories: ['터키아제르바이잔어', '페르시아어이란학', '네덜란드어', '스칸디나비아어', '포르투갈어']},
+				yAxis: { min: -2.5, max: 2.5, },
+				series: [{ data: [1.07, 1.07, 0.87, -0.90, -1.85]}]
+			}));
+
+	});
+	</script>
+</head>
+
+<body>
+	<div class="skip-navi">
+		<a href="#content">본문 바로가기</a>
+	</div>
+	<!-- WRAP -->
+	<div id="wrap">
+        <!-- Section02 - 합격률이 높은 대학 - 1 -->
+        <div class="page left_line thin-margin wide section02">
+            <div class="tag">목표 대학 분석 <div class="bar"></div> <span class="point">SECTION 02</span></div>
+            <div class="">
+                <div class="mt-2">
+                    <div class="tab short">합격률이 높은 대학 - 1</div>
+                    <div class="desc type08">
+                        <h2>상향지원 3개 학교</h2>
+                        <p>
+                            ‘나의 예상 등급’보다 ‘합격자 수능 백분율 평균’이 높고, 편차의 절댓값이 작은 대학별/학과별 분류군을 선정함. 선정된 대학별/학과별 분류군 중에서 ‘나의 예상 등급’과 ‘편차의 절댓값’이 가장 작은 학과 5개를 선정함.
+                        </p>
+                    </div>
+                    <div class="chart08 mt-2">
+                        <div class="chart-bg"></div>
+                        <div id="container-university-top01" class="chart-container"></div>
+                        <ul class="data-text">
+                        </ul>
+                    </div>
+                    <!-- 백분율 -->                    
+                </div>
+                <div class="chart mt-2">
+                    <div class="desc type08 up">
+                        <div class="box gray round wide">
+                            <div class="top"><span class="type-tag">상향지원</span><span>백분율 79.3%</span></div>
+                            <div class="info"><div>세명대학교</div><div>하위 5개 학과</div></div>
+                        </div>
+                    </div>
+                    <div class="chart09">
+                    <!--<span class="title">나의 성적</span>
+                    <div class="my-data">64.32<span>%</span></div>-->
+                    <div id="container-university-line01" class="chart-container"></div>
+                    </div>
+                </div>
+                <div class="chart">
+                    <div class="desc type08 up">
+                        <div class="box gray round wide">
+                            <div class="top"><span class="type-tag">상향지원</span><span>백분율 79.3%</span></div>
+                            <div class="info"><div>세명대학교</div><div>하위 5개 학과</div></div>
+                        </div>
+                    </div>
+                    <div class="chart09">
+                    <!--<span class="title">나의 성적</span>
+                    <div class="my-data">64.32<span>%</span></div>-->
+                    <div id="container-university-line02" class="chart-container"></div>
+                    </div>
+                </div>
+                <div class="chart">
+                    <div class="desc type08 up">
+                        <div class="box gray round wide">
+                            <div class="top"><span class="type-tag">상향지원</span><span>백분율 79.3%</span></div>
+                            <div class="info"><div>세명대학교</div><div>하위 5개 학과</div></div>
+                        </div>
+                    </div>
+                    <div class="chart09">
+                    <!--<span class="title">나의 성적</span>
+                    <div class="my-data">64.32<span>%</span></div>-->
+                    <div id="container-university-line03" class="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Section02 - 합격률이 높은 대학 - 1 -->
+    </div>
+	<!-- // WRAP -->
+</body>
+
+</html>

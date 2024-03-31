@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPT 결과지 &copy;에이블에듀테크</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<script src="../../@resource/js/jquery-1.12.4.min.js"></script>
+	<script src="../../@resource/js/jquery-ui.js"></script>
+    <script src="../../@resource/plugin/chart/"></script>
+    <script src="../../@resource/plugin/chart/highcharts.js"></script>
+    <script src="../../@resource/plugin/chart/highcharts-more.js"></script>
+    <script src="../../@resource/plugin/chart/modules/funnel.js"></script>
+<script src="../../@resource/plugin/chart/modules/solid-gauge.js"></script>
+<!-- 
+<script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+<script src="../../@resource/plugin/chart/modules/export-data.js"></script>
+-->
+    <script src="../../@resource/plugin/chart/modules/accessibility.js"></script>
+    <script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+	<link rel="stylesheet" href="../../@resource/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../@resource/css/chart.css">
+    <link rel="stylesheet" href="../../@resource/css/chart-custom.css">
+    <link rel="stylesheet" href="../../@resource/css/common.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+        var time = 5;
+        
+        $('.val').each(
+            function(i){
+                var val = $(this).data("val");
+                var w = $(this).parents().width()+50;
+                w = $(".t-score").width();
+                
+                var pos_obj = $(this).offset().top;
+                var window_pos = $(window).scrollTop() + $(window).height();
+                var left = (w * val / 100)-1.5;
+               
+                //$(this).addClass("bar_new_ani");
+                $(this).css("left",left+"px");
+                $(this).css("transition-duration",time+"s");
+            }
+        );
+
+		});
+	</script>
+</head>
+
+<body>
+	<div class="skip-navi">
+		<a href="#content">본문 바로가기</a>
+	</div>
+
+	<!-- WRAP -->
+	<div id="wrap">
+        <!-- Section01 - page3 - 변환 등급 -->
+        <div class="page left_line thin-margin wide">
+            <div class="tag">수능사고력 행동 영역 분석 <div class="bar"></div> <span class="point">SECTION 01</span></div>
+            <div class="w90">
+                <div class="mt-2">
+                    <div class="tab short">9등급 상대평가 변환등급</div>
+                    <div class="desc type03">
+                        <div class="shape icon big level">
+                            <span class="number">2.3</span>
+                            <div class="ico level"></div>
+                            
+                            <div class="pointer1"></div>
+                            <div class="pointer2"></div>
+                            <div class="pointer3"></div>
+                            <div class="pointer4"></div>
+                        </div>
+                        <div class="shape icon big white wide score_type01">
+                            <div class="score"><h4>점수</h4>
+                                <span>70.7</span><span>/ 100</span></div>
+                            <div class="score"><h4>평균</h4>
+                                <span>52.8</span><span>/ 100</span>
+                            </div>
+                            <div class="score"><h4>상위</h4>
+                                <span>8.5</span><span>%</span></div>
+                            <div class="pointer1"></div>
+                            <div class="pointer2"></div>
+                            <div class="pointer3"></div>
+                            <div class="pointer4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="tab short">5등급 절대평가 변환등급<span>(변동분할)</span></div>
+                    <div class="desc type03">
+                        <div class="shape icon big level">
+                            <span>A</span>
+                            <div class="ico level"></div>
+                            <div class="pointer1"></div>
+                            <div class="pointer2"></div>
+                            <div class="pointer3"></div>
+                            <div class="pointer4"></div>
+                        </div>
+                        <div class="shape icon big white short score_type01">
+                            <div class=""><h4>점수</h4>
+                                <span>59.6</span><span>/ 100</span></div>
+                            <div class="pointer1"></div>
+                            <div class="pointer2"></div>
+                            <div class="pointer3"></div>
+                            <div class="pointer4"></div>
+                        </div>
+                        <div class="memo">
+                            <h3>5등급 절대평가 등급이란?</h3>
+                            <p>
+                                초,중등 교과과정에 맞는 4개 능력의 점수로만 산출합니다.<br/>
+                                (수식 단순화, 공식적용, 알고리즘 적용, 개념 적용) 성취도는<br/>
+                                A~E 다섯 개 등급으로 구분되며, 변동 분할 등급을 적용합니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="t-score">
+                        <div class="title">
+                            <h3>T score</h3>
+                            <span>46.3</span>
+                        </div>
+                        <div class="chart">
+                            <div class="val" data-val="30"></div>
+                        </div>
+                       <!-- <div id="container-t-score" class="point-none chart"></div> -->
+                    </div>
+                    <ul class="list01">
+                        <li>* T score는 원점수의 평균과 표준편차를 평균 50, 표준편차 10으로 변환하여 나타낸 표준점수 입니다.</li>
+                        <li>*원점수의 비교로는 시험의 난이도를 반영하지 못하고, 원점수만으로는 상대적 위치를 알 수 없기 때문에 대학수학능력시험이나 지능지수 (IQ)검사 등에서는 표준점수를 사용합니다.</li>
+                    </ul>
+                </div>
+                <div class="">
+                    <div class="tab short">IPT 정오표</div>
+                    <ul class="container-header">
+                        <li><span>No.</span><span>O | X</span></li>
+                        <li><span>No.</span><span>O | X</span></li>
+                        <li><span>No.</span><span>O | X</span></li>
+                        <li><span>No.</span><span>O | X</span></li>
+                        <li><span>No.</span><span>O | X</span></li>
+                        <li><span>No.</span><span>O | X</span></li>
+                        <li><span>No.</span><span>O | X</span></li>
+                    </ul>
+                    <div class="">
+                        <ul class="container">
+                            <li><span>1</span><span>O</span></li>
+                            <li><span>2</span><span>X</span></li>
+                            <li><span>3</span><span>O</span></li>
+                            <li><span>4</span><span>O</span></li>
+                            <li><span>5</span><span>O</span></li>
+                            <li><span>6</span><span>O</span></li>
+                            <li><span>7</span><span>O</span></li>
+                            <li><span>8</span><span>O</span></li>
+                            <li><span>9</span><span>O</span></li>
+                            <li><span>10</span><span>O</span></li>
+                            <li><span>11</span><span>O</span></li>
+                            <li><span>12</span><span>X</span></li>
+                            <li><span>13</span><span>O</span></li>
+                            <li><span>14</span><span>O</span></li>
+                            <li><span>15</span><span>O</span></li>
+                            <li><span>16</span><span>O</span></li>
+                            <li><span>17</span><span>O</span></li>
+                            <li><span>18</span><span>O</span></li>
+                            <li><span>19</span><span>O</span></li>
+                            <li><span>20</span><span>O</span></li>
+                            <li><span>21</span><span>O</span></li>
+                            <li><span>22</span><span>O</span></li>
+                            <li><span>23</span><span>X</span></li>
+                            <li><span>24</span><span>O</span></li>
+                            <li><span>25</span><span>O</span></li>
+                            <li><span>26</span><span>O</span></li>
+                            <li><span>27</span><span>O</span></li>
+                            <li><span>28</span><span>O</span></li>
+                            <li><span>29</span><span>X</span></li>
+                            <li><span>30</span><span>X</span></li>
+                            <li><span>31</span><span>O</span></li>
+                            <li><span>32</span><span>X</span></li>
+                            <li><span>33</span><span>O</span></li>
+                            <li><span>34</span><span>O</span></li>
+                            <li><span>35</span><span>O</span></li>
+                            <li><span>36</span><span>O</span></li>
+                            <li><span>37</span><span>O</span></li>
+                            <li><span>38</span><span>O</span></li>
+                            <li><span>39</span><span>O</span></li>
+                            <li><span>40</span><span>O</span></li>
+                            <li><span>41</span><span>O</span></li>
+                            <li><span>42</span><span>O</span></li>
+                            <li><span>43</span><span>O</span></li>
+                            <li><span>44</span><span>O</span></li>
+                            <li><span>45</span><span>O</span></li>
+                            <li><span>46</span><span>O</span></li>
+                            <li><span>47</span><span>O</span></li>
+                            <li><span>48</span><span>O</span></li>
+                            <li><span>49</span><span>O</span></li>
+                            <li><span>50</span><span>O</span></li>
+                            <li><span>51</span><span>O</span></li>
+                            <li><span>52</span><span>O</span></li>
+                            <li><span>53</span><span>O</span></li>
+                            <li><span>54</span><span>O</span></li>
+                            <li><span>55</span><span>O</span></li>
+                            <li><span>56</span><span>O</span></li>
+                            <li><span>57</span><span>O</span></li>
+                            <li><span>58</span><span>O</span></li>
+                            <li><span>59</span><span>O</span></li>
+                            <li><span>60</span><span>O</span></li>
+                            <li><span>61</span><span>O</span></li>
+                            <li><span>62</span><span>O</span></li>
+                            <li><span>63</span><span>O</span></li>
+                            <li><span>64</span><span>O</span></li>
+                            <li><span>65</span><span>O</span></li>
+                            <li><span>66</span><span>O</span></li>
+                            <li><span>67</span><span>O</span></li>
+                            <li><span>68</span><span>O</span></li>
+                            <li><span>69</span><span>O</span></li>
+                            <li><span>70</span><span>O</span></li>
+                            <li><span>71</span><span>O</span></li>
+                            <li><span>72</span><span>O</span></li>
+                            <li><span>73</span><span>O</span></li>
+                            <li><span>74</span><span>O</span></li>
+                            <li><span>75</span><span>O</span></li>
+                            <li><span>76</span><span>O</span></li>
+                            <li><span>77</span><span>O</span></li>
+                            <li><span>78</span><span>O</span></li>
+                            <li><span>79</span><span>O</span></li>
+                            <li><span>80</span><span>O</span></li>
+                            <li><span>81</span><span>O</span></li>
+                            <li><span>82</span><span>O</span></li>
+                            <li><span>83</span><span>O</span></li>
+                            <li><span>84</span><span>O</span></li>
+                            <li><span>85</span><span>O</span></li>
+                            <li><span>86</span><span>O</span></li>
+                            <li><span>87</span><span>O</span></li>
+                            <li><span>88</span><span>O</span></li>
+                            <li><span>89</span><span>O</span></li>
+                            <li><span>90</span><span>O</span></li>
+                            <li><span>91</span><span>O</span></li>
+                            <li><span>92</span><span> </span></li>
+                            <li><span>93</span><span> </span></li>
+                            <li><span>94</span><span> </span></li>
+                            <li><span>95</span><span> </span></li>
+                            <li><span>96</span><span> </span></li>
+                            <li><span>97</span><span> </span></li>
+                            <li><span>98</span><span> </span></li>
+                            <li><span>99</span><span> </span></li>
+                            <li><span>100</span><span> </span></li>
+                            <li><span>101</span><span> </span></li>
+                            <li><span>102</span><span> </span></li>
+                            <li><span>103</span><span> </span></li>
+                            <li><span>104</span><span> </span></li>
+                            <li><span>105</span><span> </span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Section01 - page3 - 변환 등급 -->
+    </div>
+	<!-- // WRAP -->
+	<script>
+	</script>
+</body>
+
+</html>

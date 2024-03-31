@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPT 결과지 &copy;에이블에듀테크</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<script src="../../@resource/js/jquery-1.12.4.min.js"></script>
+	<script src="../../@resource/js/jquery-ui.js"></script>
+    <script src="../../@resource/plugin/chart/"></script>
+    <script src="../../@resource/plugin/chart/highcharts.js"></script>
+    <script src="../../@resource/plugin/chart/highcharts-more.js"></script>
+    <script src="../../@resource/plugin/chart/modules/funnel.js"></script>
+<script src="../../@resource/plugin/chart/modules/solid-gauge.js"></script>
+<!-- 
+<script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+<script src="../../@resource/plugin/chart/modules/export-data.js"></script>
+-->
+    <script src="../../@resource/plugin/chart/modules/accessibility.js"></script>
+    <script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+    <!-- 2023.03.28 스크립트 추가 -->
+    <script src="../../@resource/js/able.js"></script>
+	<link rel="stylesheet" href="../../@resource/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../@resource/css/chart.css">
+    <link rel="stylesheet" href="../../@resource/css/chart-custom.css">
+    <link rel="stylesheet" href="../../@resource/css/common.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+            var bar_val = [61.2,92.3,82.8,88.2,88.2,74.5,60.3,81.3,69.4,56.1,56.1,56.1,22.7,0,10.2];
+            //행동영역별 점수
+            Chart.open('.bar01 .chart-data',{scroll:false, time:2,data:bar_val});
+		});
+	</script>
+</head>
+
+
+<body>
+	<div class="skip-navi">
+		<a href="#content">본문 바로가기</a>
+	</div>
+
+	<!-- WRAP -->
+	<div id="wrap">
+        <!-- Section01 - page4 - 행동영역별 점수 -->
+        <div class="page left_line thin-margin wide">
+            <div class="tag">수능사고력 행동 영역 분석 <div class="bar"></div> <span class="point">SECTION 01</span></div>
+            <div class="">
+                <div class="mt-2">
+                    <div class="tab">행동 영역별 점수</div>
+                    <div class="desc flex column type04 bar01">
+                        <div class="desc flex column type04">
+                        <div class="header">
+                            <div class="v-title"></div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex white">
+                                            
+                                        </div>
+                                        <div class="chart white">
+                                        <div>문항수</div>
+                                        <div>총점</div>
+                                        <div>득점</div>
+                                        <div>변환점수 <span>(100점 만점)</span></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sum">
+                            <div class="v-title">총계</div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex white">
+                                            
+                                        </div>
+                                        <div class="chart">
+                                        <div>95</div>
+                                        <div>371</div>
+                                        <div>227</div>
+                                        <div><div class="chart-data" data-val="61.2"></div></div>
+                                        <div></div>
+                                        <div>61.2</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="desc flex column type04">
+                        <div>
+                            <div class="v-title t-es">계산영역</div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex">
+                                            <div class="icon es">Es
+                                                <div class="pointer1"></div>
+                                                <div class="pointer2"></div>
+                                                <div class="pointer3"></div>
+                                                <div class="pointer4"></div>
+                                            </div>
+                                            <div class="title">
+                                            수식 단순화 능력
+                                            <span class="engText">Expression simplification</span>
+                                            </div>
+                                        </div>
+                                        <div class="chart">
+                                            <div>20</div>
+                                            <div>39</div>
+                                            <div>36</div>
+                                            <div><div class="chart-data es" data-val="92.3"></div></div>
+                                            <div></div>
+                                            <div>92.3</div>
+                                        </div>
+                                    </li>
+                                    <!-- 수정 : 20230417 rowspan 효과 - 하나의 li로 처리 -->
+                                    <li>
+                                        <div>
+                                        <div class="box flex">
+                                            <div class="icon aa">Aa
+                                                <div class="pointer1"></div>
+                                                <div class="pointer2"></div>
+                                                <div class="pointer3"></div>
+                                                <div class="pointer4"></div>
+                                            </div>
+                                            <div class="title">
+                                                알고리즘 적용 능력
+                                            <span class="engText">Algorithmicapplication</span>
+                                            </div>
+                                        </div>
+                                        <div class="box flex">
+                                            <div class="icon fa">Fa
+                                                <div class="pointer1"></div>
+                                                <div class="pointer2"></div>
+                                                <div class="pointer3"></div>
+                                                <div class="pointer4"></div>
+                                            </div>
+                                            <div class="title">
+                                                공식 적용 능력
+                                            <span class="engText">Formula application</span>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="chart rowspan">
+                                            <div>16</div>
+                                            <div>29</div>
+                                            <div>24</div>
+                                            <div><div class="chart-data aa" data-val="82.8"></div></div>
+                                            <div></div>
+                                            <div>82.8</div>
+                                        </div>
+                                    </li>
+                                    <!-- // 20230417 rowspan 효과 -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sum gray">
+                            <div class="v-title">소계</div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex white">
+                                            
+                                        </div>
+                                        <div class="chart white">
+                                            <div>36</div>
+                                            <div>68</div>
+                                            <div>60</div>
+                                            <div><div class="chart-data" data-val="88.2"></div></div>
+                                            <div></div>
+                                            <div>88.2</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="desc flex column type04">
+                        <div>
+                            <div class="v-title t-ca">이해영역</div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex">
+                                            <div class="icon ca">Ca
+                                                <div class="pointer1"></div>
+                                                <div class="pointer2"></div>
+                                                <div class="pointer3"></div>
+                                                <div class="pointer4"></div>
+                                            </div>
+                                            <div class="title">
+                                            개념 적용 능력
+                                            <span class="engText">Concept application</span>
+                                            </div>
+                                        </div>
+                                        <div class="chart">
+                                            <div>12</div>
+                                            <div>47</div>
+                                            <div>35</div>
+                                            <div><div class="chart-data ca" data-val="74.5"></div></div>
+                                            <div></div>
+                                            <div>74.5</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="box flex">
+                                            <div class="icon cu">Cu
+                                                <div class="pointer1"></div>
+                                                <div class="pointer2"></div>
+                                                <div class="pointer3"></div>
+                                                <div class="pointer4"></div>
+                                            </div>
+                                            <div class="title">
+                                            개념 응용 능력
+                                            <span class="engText">Concept usage</span>
+                                            </div>
+                                        </div>
+                                        <div class="chart">
+                                            <div>12</div>
+                                            <div>47</div>
+                                            <div>35</div>
+                                            <div><div class="chart-data cu" data-val="74.5"></div></div>
+                                            <div></div>
+                                            <div>74.5</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="box flex">
+                                            <div class="icon me">Me
+                                                <div class="pointer1"></div>
+                                                <div class="pointer2"></div>
+                                                <div class="pointer3"></div>
+                                                <div class="pointer4"></div>
+                                            </div>
+                                            <div class="title">
+                                                수학적 표현 능력
+                                            <span class="engText">Mathematical expression</span>
+                                            </div>
+                                        </div>
+                                        <div class="chart">
+                                            <div>5</div>
+                                            <div>32</div>
+                                            <div>26</div>
+                                            <div><div class="chart-data me" data-val="81.3"></div></div>
+                                            <div></div>
+                                            <div>81.3</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sum gray">
+                            <div class="v-title">소계</div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex white">
+                                            
+                                        </div>
+                                        <div class="chart white">
+                                            <div>30</div>
+                                            <div>147</div>
+                                            <div>102</div>
+                                            <div><div class="chart-data" data-val="69.4"></div></div>
+                                            <div></div>
+                                            <div>69.4</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="desc flex column type04">
+                        <div>
+                            <div class="v-title t-ir">추론영역</div>
+                            <div><ul>
+                                <li>
+                                    <div class="box flex">
+                                        <div class="icon ir">Ir
+                                            <div class="pointer1"></div>
+                                            <div class="pointer2"></div>
+                                            <div class="pointer3"></div>
+                                            <div class="pointer4"></div>
+                                        </div>
+                                        <div class="title">
+                                        귀납적 추리 능력
+                                        <span class="engText">Inductive reasoning</span>
+                                        </div>
+                                    </div>
+                                    <div class="chart">
+                                        <div>8</div>
+                                        <div>41</div>
+                                        <div>23</div>
+                                        <div><div class="chart-data ir" data-val="56.1"></div></div>
+                                        <div></div>
+                                        <div>56.1</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box flex">
+                                        <div class="icon mr">Mr
+                                            <div class="pointer1"></div>
+                                            <div class="pointer2"></div>
+                                            <div class="pointer3"></div>
+                                            <div class="pointer4"></div>
+                                        </div>
+                                        <div class="title">
+                                            수학적 논증 능력
+                                        <span class="engText">Mathematical reasoning</span>
+                                        </div>
+                                    </div>
+                                    <div class="chart">
+                                        <div>13</div>
+                                        <div>66</div>
+                                        <div>37</div>
+                                        <div><div class="chart-data mr" data-val="56.1"></div></div>
+                                        <div></div>
+                                        <div>56.1</div>
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="sum gray">
+                            <div class="v-title">소계</div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex white">
+                                            
+                                        </div>
+                                        <div class="chart white">
+                                            <div>21</div>
+                                            <div>107</div>
+                                            <div>60</div>
+                                            <div><div class="chart-data" data-val="56.1"></div></div>
+                                            <div></div>
+                                            <div>56.1</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="desc flex column type04">
+                        <div>
+                            <div class="v-title t-at">문제해결영역</div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex">
+                                            <div class="icon at">At
+                                                <div class="pointer1"></div>
+                                                <div class="pointer2"></div>
+                                                <div class="pointer3"></div>
+                                                <div class="pointer4"></div>
+                                            </div>
+                                            <div class="title">
+                                            분석적 사고 능력
+                                            <span class="engText">Analytical thinking</span>
+                                            </div>
+                                        </div>
+                                        <div class="chart">
+                                            <div>4</div>
+                                            <div>22</div>
+                                            <div>5</div>
+                                            <div><div class="chart-data at" data-val="22.7"></div></div>
+                                            <div></div>
+                                            <div>22.7</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="box flex">
+                                            <div class="icon mm">Mm
+                                                <div class="pointer1"></div>
+                                                <div class="pointer2"></div>
+                                                <div class="pointer3"></div>
+                                                <div class="pointer4"></div>
+                                            </div>
+                                            <div class="title">
+                                                수리적 모델링 능력
+                                            <span class="engText">Mathematical modeling</span>
+                                            </div>
+                                        </div>
+                                        <div class="chart">
+                                            <div>4</div>
+                                            <div>27</div>
+                                            <div>0</div>
+                                            <div><div class="chart-data mm" data-val="0"></div></div>
+                                            <div></div>
+                                            <div>0</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sum gray">
+                            <div class="v-title">소계</div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div class="box flex white">
+                                            
+                                        </div>
+                                        <div class="chart white">
+                                            <div>1</div>
+                                            <div>2</div>
+                                            <div>3</div>
+                                            <div><div class="chart-data" data-val="10.2"></div></div>
+                                            <div></div>
+                                            <div>10.2</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- // Section01 - page4 - 행동영역별 점수 -->
+    </div>
+	<!-- // WRAP -->
+	<script>
+	</script>
+</body>
+
+</html>

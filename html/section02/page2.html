@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPT 결과지 &copy;에이블에듀테크</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<script src="../../@resource/js/jquery-1.12.4.min.js"></script>
+	<script src="../../@resource/js/jquery-ui.js"></script>
+    <script src="../../@resource/plugin/chart/"></script>
+    <script src="../../@resource/plugin/chart/highcharts.js"></script>
+    <script src="../../@resource/plugin/chart/highcharts-more.js"></script>
+    <script src="../../@resource/plugin/chart/modules/funnel.js"></script>
+	<script src="../../@resource/plugin/chart/modules/solid-gauge.js"></script>
+    <script src="../../@resource/plugin/chart/modules/accessibility.js"></script>
+    <script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+	<link rel="stylesheet" href="../../@resource/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../@resource/css/chart.css">
+    <link rel="stylesheet" href="../../@resource/css/chart-custom.css">
+    <link rel="stylesheet" href="../../@resource/css/common.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+            //차트 공통 프로퍼티
+            var university_val = {
+                chart: { type: 'column', styledMode:true,},
+                title: { text: ''},
+                xAxis: { labels:{enabled:false}, gridLineWidth: 0,},
+                yAxis: { allowDecimals: false, gridLineWidth: 0, min: 0, title: {text: ''}, labels:{enabled:false}},
+                legend: { enabled: false},  tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.x + '</b><br/>' +
+                            this.series.name + ': ' + this.y + '<br/>' +
+                            'Total: ' + this.point.stackTotal;
+                    }
+                },
+                plotOptions: {column: {stacking: 'normal',pointWidth:80,pointPlacement:'between',stickyTracking:false,}},
+            };
+            //******하향지원 */
+            Highcharts.chart('container-university-01', $.extend({
+                series: [{
+                    name: 'TOP',
+                    data: [20],
+                    stack: 'Standard'
+                },{
+                    name: '합격자기준',
+                    data: [30],
+                    stack: 'Standard'
+                }, {
+                    name: '합격최저선',
+                    data: [50],
+                    stack: 'Standard'
+                }, {
+                    name: 'TOP',
+                    data: [70],
+                    stack: 'My'
+                }, {
+                    name: '나의수학',
+                    data: [30],
+                    stack: 'My'
+                }]           // data array
+            }, university_val));
+            Highcharts.chart('container-university-02', $.extend({
+                series: [{
+                    name: 'TOP',
+                    data: [20],
+                    stack: 'Standard'
+                },{
+                    name: '합격자기준',
+                    data: [30],
+                    stack: 'Standard'
+                }, {
+                    name: '합격최저선',
+                    data: [50],
+                    stack: 'Standard'
+                }, {
+                    name: 'TOP',
+                    data: [70],
+                    stack: 'My'
+                }, {
+                    name: '나의수학',
+                    data: [30],
+                    stack: 'My'
+                }]           // data array
+            }, university_val));
+
+            Highcharts.chart('container-university-03', $.extend({
+                series: [{
+                    name: 'TOP',
+                    data: [20],
+                    stack: 'Standard'
+                },{
+                    name: '합격자기준',
+                    data: [30],
+                    stack: 'Standard'
+                }, {
+                    name: '합격최저선',
+                    data: [50],
+                    stack: 'Standard'
+                }, {
+                    name: 'TOP',
+                    data: [70],
+                    stack: 'My'
+                }, {
+                    name: '나의수학',
+                    data: [30],
+                    stack: 'My'
+                }]           // data array
+            }, university_val));
+
+            Highcharts.chart('container-university-04', $.extend({
+                series: [{
+                    name: 'TOP',
+                    data: [20],
+                    stack: 'Standard'
+                },{
+                    name: '합격자기준',
+                    data: [30],
+                    stack: 'Standard'
+                }, {
+                    name: '합격최저선',
+                    data: [50],
+                    stack: 'Standard'
+                }, {
+                    name: 'TOP',
+                    data: [70],
+                    stack: 'My'
+                }, {
+                    name: '나의수학',
+                    data: [30],
+                    stack: 'My'
+                }]           // data array
+            }, university_val));
+
+            Highcharts.chart('container-university-05', $.extend({
+                series: [{
+                    name: 'TOP',
+                    data: [20],
+                    stack: 'Standard'
+                },{
+                    name: '합격자기준',
+                    data: [30],
+                    stack: 'Standard'
+                }, {
+                    name: '합격최저선',
+                    data: [50],
+                    stack: 'Standard'
+                }, {
+                    name: 'TOP',
+                    data: [70],
+                    stack: 'My'
+                }, {
+                    name: '나의수학',
+                    data: [30],
+                    stack: 'My'
+                }]           // data array
+            }, university_val));
+
+            Highcharts.chart('container-university-06', $.extend({
+                series: [{
+                    name: 'TOP',
+                    data: [20],
+                    stack: 'Standard'
+                },{
+                    name: '합격자기준',
+                    data: [30],
+                    stack: 'Standard'
+                }, {
+                    name: '합격최저선',
+                    data: [50],
+                    stack: 'Standard'
+                }, {
+                    name: 'TOP',
+                    data: [70],
+                    stack: 'My'
+                }, {
+                    name: '나의수학',
+                    data: [30],
+                    stack: 'My'
+                }]           // data array
+            }, university_val));
+		});
+	</script>
+</head>
+<body>
+	<div class="skip-navi">
+		<a href="#content">본문 바로가기</a>
+	</div>
+
+	<!-- WRAP -->
+	<div id="wrap">
+        <!-- Section02 - 대학분석 1 -->
+        <div class="page left_line thin-margin wide section02">
+            <div class="tag">목표 대학 분석 <div class="bar"></div> <span class="point">SECTION 02</span></div>
+            <div class="">
+                <div class="mt-2">
+                    <div class="tab short">대학 분석 - 1</div>
+                    <div class="desc type07">
+                        <div class="shape icon big white university">
+                            <div class="">계명대학교</div>
+                            <div class="pointer1"></div>
+                            <div class="pointer2"></div>
+                            <div class="pointer3"></div>
+                            <div class="pointer4"></div>
+                        </div>
+                        <div>
+                        <p>
+                            의대, 치대, 약대, 한의대를 제외한 ‘일반 학과’는 ‘합격자 수능 백분율 평균’을  기준으로 분류되며, 분류 기준은 다음과 같이 3가지 형태가 적용됩니다.
+                        </p>
+                        <ul>
+                            <li><b>[분류1] 상위 5개 학과 :</b>
+                                ‘합격자 수능 백분율 평균’이 가장 높은 상위 5개 학과를 선정함.</li>
+                            <li><b>[분류1] 상위 5개 학과 :</b>
+                                ‘합격자 수능 백분율 평균’이 가장 높은 상위 5개 학과를 선정함.</li>
+                            <li><b>[분류1] 상위 5개 학과 :</b>
+                                ‘합격자 수능 백분율 평균’이 가장 높은 상위 5개 학과를 선정함.</li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="desc type07 down">
+                            <div class="box gray round wide">
+                                <div class="top"><span class="type-tag">하향지원</span><span>백분율 79.3%</span></div>
+                                <div>상위 5개 학과</div>
+                            </div>
+                            <div class="day">
+                                <div class="top">학습완료 - 수능</div>
+                                <div>+3년 (155.8주)</div>
+                            </div>
+                            <div class="map">
+                                <span class="today">+2000</span>
+                                <span class="val">-25</span>
+                            </div>
+                        </div>
+                        <div class="chart07-wrap">
+                            <div class="chart07 left">
+                                <div class="chart-bg white"></div>
+                                <span class="class_name">수학</span>
+                                <div class="txt standard"><ins>합격자 기준</ins><br/>
+                                    <span>10.8</span>%<br/>
+                                    2등급
+                                </div>
+                                <div class="txt min">
+                                    <ins>합격 최저선</ins><br/>
+                                    <span>33.1</span>%<br/>
+                                    4등급
+                                </div>
+                                <div class="txt my">
+                                    <ins>나의 수학</ins><br/>
+                                    <span>11.1</span>%<br/>
+                                    3등급
+                                </div>
+                                <div id="container-university-01" class="chart-container"></div>
+                            </div>
+                            <div class="chart07 right">
+                                <div class="chart-bg white"></div>
+                                <span class="class_name">국영탐</span>
+                                <div class="txt standard"><ins>합격자 기준</ins><br/>
+                                    <span>10.8</span>%<br/>
+                                    2등급
+                                </div>
+                                <div class="txt min">
+                                    <ins>합격 최저선</ins><br/>
+                                    <span>33.1</span>%<br/>
+                                    4등급
+                                </div>
+                                <div class="txt my">
+                                    <ins>나의 수학</ins><br/>
+                                    <span>11.1</span>%<br/>
+                                    3등급
+                                </div>
+                                <div id="container-university-02" class="chart-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--중위권학과-->
+                    <div class="chart">
+                        <div class="desc type07 down">
+                            <div class="box gray round wide">
+                                <div class="top"><span class="type-tag">하향지원</span><span>백분율 62.2%</span></div>
+                                <div>중위권 학과</div>
+                            </div>
+                            <div class="day">
+                                <div class="top">학습완료 - 수능</div>
+                                <div>-1.6년 (83주)</div>
+                            </div>
+                            <div class="map">
+                                <span class="today">+2000</span>
+                                <span class="val">-586</span>
+                            </div>
+                        </div>
+                        <div class="chart07-wrap">
+                            <div class="chart07 left">
+                                <div class="chart-bg white"></div>
+                                <span class="class_name">수학</span>
+                                <div class="txt standard"><ins>합격자 기준</ins><br/>
+                                    <span>10.8</span>%<br/>
+                                    2등급
+                                </div>
+                                <div class="txt min">
+                                    <ins>합격 최저선</ins><br/>
+                                    <span>33.1</span>%<br/>
+                                    4등급
+                                </div>
+                                <div class="txt my">
+                                    <ins>나의 수학</ins><br/>
+                                    <span>11.1</span>%<br/>
+                                    3등급
+                                </div>
+                                <div id="container-university-03" class="chart-container"></div>
+                            </div>
+                            <div class="chart07 right">
+                                <div class="chart-bg white"></div>
+                                <span class="class_name">국영탐</span>
+                                <div class="txt standard"><ins>합격자 기준</ins><br/>
+                                    <span>10.8</span>%<br/>
+                                    2등급
+                                </div>
+                                <div class="txt min">
+                                    <ins>합격 최저선</ins><br/>
+                                    <span>33.1</span>%<br/>
+                                    4등급
+                                </div>
+                                <div class="txt my">
+                                    <ins>나의 수학</ins><br/>
+                                    <span>11.1</span>%<br/>
+                                    3등급
+                                </div>
+                                <div id="container-university-04" class="chart-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--하위5개학과-->
+                    <div class="chart">
+                        <div class="desc type07 down">
+                            <div class="box gray round wide">
+                                <div class="top"><span class="type-tag">하향지원</span><span>백분율 79.3%</span></div>
+                                <div>하위 5개 학과</div>
+                            </div>
+                            <div class="day">
+                                <div class="top">학습완료 - 수능</div>
+                                <div>-1.9년 (102주)</div>
+                            </div>
+                            <div class="map">
+                                <span class="today">+2000</span>
+                                <span class="val">-716</span>
+                            </div>
+                        </div>
+                        <div class="chart07-wrap">
+                            <div class="chart07 left">
+                                <div class="chart-bg white"></div>
+                                <span class="class_name">수학</span>
+                                <div class="txt standard"><ins>합격자 기준</ins><br/>
+                                    <span>10.8</span>%<br/>
+                                    2등급
+                                </div>
+                                <div class="txt min">
+                                    <ins>합격 최저선</ins><br/>
+                                    <span>33.1</span>%<br/>
+                                    4등급
+                                </div>
+                                <div class="txt my">
+                                    <ins>나의 수학</ins><br/>
+                                    <span>11.1</span>%<br/>
+                                    3등급
+                                </div>
+                                <div id="container-university-05" class="chart-container"></div>
+                            </div>
+                            <div class="chart07 right">
+                                <div class="chart-bg white"></div>
+                                <span class="class_name">국영탐</span>
+                                <div class="txt standard"><ins>합격자 기준</ins><br/>
+                                    <span>10.8</span>%<br/>
+                                    2등급
+                                </div>
+                                <div class="txt min">
+                                    <ins>합격 최저선</ins><br/>
+                                    <span>33.1</span>%<br/>
+                                    4등급
+                                </div>
+                                <div class="txt my">
+                                    <ins>나의 수학</ins><br/>
+                                    <span>11.1</span>%<br/>
+                                    3등급
+                                </div>
+                                <div id="container-university-06" class="chart-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Section02 - 대학분석 1 -->
+    </div>
+	<!-- // WRAP -->
+	<script>
+	</script>
+</body>
+
+</html>

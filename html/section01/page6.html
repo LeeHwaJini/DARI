@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPT 결과지 &copy;에이블에듀테크</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<script src="../../@resource/js/jquery-1.12.4.min.js"></script>
+	<script src="../../@resource/js/jquery-ui.js"></script>
+    <script src="../../@resource/plugin/chart/"></script>
+    <script src="../../@resource/plugin/chart/highcharts.js"></script>
+    <script src="../../@resource/plugin/chart/highcharts-more.js"></script>
+    <script src="../../@resource/plugin/chart/modules/funnel.js"></script>
+<script src="../../@resource/plugin/chart/modules/solid-gauge.js"></script>
+<!-- 
+<script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+<script src="../../@resource/plugin/chart/modules/export-data.js"></script>
+-->
+    <script src="../../@resource/plugin/chart/modules/accessibility.js"></script>
+    <script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+	<link rel="stylesheet" href="../../@resource/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../@resource/css/chart.css">
+    <link rel="stylesheet" href="../../@resource/css/chart-custom.css">
+    <link rel="stylesheet" href="../../@resource/css/common.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		/** 계산능력 프로파일 텍스트 적용 함수 **/
+		function alignLabel() {
+				var grossLabel;
+				var grossSubLabel;
+				const chart = this;
+			
+				if (grossLabel) {
+				grossLabel.destroy();
+				}
+				if (grossSubLabel) {
+					grossSubLabel.destroy();
+				}
+				
+			
+				const newX = chart.plotWidth / 2 + chart.plotLeft;
+				const newY = chart.plotHeight / 2 + chart.plotTop;
+			
+				grossLabel = chart.renderer.text(`${(chart.yAxis[0].dataMin)}%`, newX, newY+8)
+				.attr({
+					align: 'center',
+				})
+				.css({
+					color: '#1d354d',
+					fontSize: '32px',
+				}).add();
+
+				grossSubLabel= chart.renderer.text(`${chart.series[0].name}`, newX, newY+25)
+				.attr({
+					align: 'center',
+				})
+				.css({
+					color: '#1d354d',
+					fontSize: '12px',
+				}).add();
+			}
+			/** 계산능력 프로파일 차트 **/
+			Highcharts.chart('container-solid-speed', {
+			chart: {
+				type: 'solidgauge',
+				height: '110%',
+				backgroundColor: '#f4f4f4',
+				borderRadius:20,
+				styledMode:true,
+				events: {
+					load: alignLabel,
+					redraw: alignLabel,
+				},
+			},
+			title: {
+				text: '',
+			},
+		
+			tooltip: {
+				enabled: false
+			},
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{ // Track for Move
+					outerRadius: '102%',
+					innerRadius: '98%',
+					backgroundColor: '#6d6366',
+					borderWidth: 0
+				}]
+			},
+			yAxis: {
+				min: 0,
+				max: 100,
+				lineWidth: 0,
+				tickPositions: []
+			},
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: false,
+						formatter:function(){
+							console.log(this);
+							return "<span>"+this.y + "% </span><br/>"+this.key;
+						}
+					},
+					linecap: 'round',
+					stickyTracking: false,
+					rounded: false
+				}
+			},
+			series: [{
+				name: '계산속도',
+				data: [{
+					name: '계산속도',
+					color: '#4B9DC6',
+					radius: '106%',
+					innerRadius: '94%',
+					y: 80
+				}]
+			}]
+		});
+
+		Highcharts.chart('container-solid-accuracy', {
+			chart: {
+				type: 'solidgauge',
+				height: '110%',
+				backgroundColor: '#f4f4f4',
+				borderRadius:20,
+				events: {
+					load: alignLabel,
+					redraw: alignLabel,
+				},
+			},
+			title: {
+				text: '',
+			},
+			tooltip: {
+				enabled: false
+			},
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{ // Track for Move
+					outerRadius: '102%',
+					innerRadius: '98%',
+					backgroundColor: '#6d6366',
+					borderWidth: 0
+				}]
+			},
+			yAxis: {
+				min: 0,
+				max: 100,
+				lineWidth: 0,
+				tickPositions: []
+			},
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: false,
+						formatter:function(){
+							console.log(this);
+							return "<span>"+this.y + "% </span><br/>"+this.key;
+						}
+					},
+					linecap: 'round',
+					stickyTracking: false,
+					rounded: false
+				}
+			},
+			series: [{
+				name: '계산정확도',
+				data: [{
+					name: '계산정확도',
+					color: '#7fc640',
+					radius: '108%',
+					innerRadius: '93%',
+					y: 91.7
+				}]
+			}]
+		});
+    	/** //계산능력 프로파일 차트 **/
+		/** 문항 곤란도별 차트 **/
+		//차트 공통 프로퍼티
+		var line_legend_val = {//범례
+			floating: false,//범례를 차트 영역 위로 띄울 시 true 지정.
+			align: 'center',//수평 정렬 지정
+			verticalAlign: 'bottom',//수직 정렬 지정.
+			symbolRadius:0,//범례 심볼 radius 지정
+			symbolWidth:25,
+			symbolHeight:10,
+			itemDistance:5,//범례 간 간격 지정.
+			itemMarginTop:40,
+			itemStyle: {
+			fontSize: '10px',
+			fontWeight:'400'
+			},
+			x: 0,//가로 위치 지정.
+			y: 00,//세로 위치 지정.
+		};
+
+		Highcharts.chart('container-line-01-01', {
+			title: { text: '',}, credits: {enabled: false},
+			xAxis: {
+				tickWidth: 0,gridLineWidth: 0,tickmarkPlacement: '',
+				categories: ['간단', '보통', '복잡'],
+				lineColor:'#000',
+			},
+			yAxis: [ { // right y axis
+				min:0, max: 100,
+				gridLineWidth: 0,
+				opposite: true,
+				title: {text: null},
+				labels: {
+					enabled:false,
+				},
+				showFirstLabel: false
+			}],
+			legend: line_legend_val,
+			series: [{          
+				name: '평균치',
+				dashStyle: 'dot',color: '#999999',marker:{symbol:'circle'},
+				data: [50, 80, 30],
+			}, {
+				name: '식 지표',
+				color: '#4b9dc6',marker:{symbol:'circle'},
+				data: [60,90,60],
+			}],
+		});
+
+		Highcharts.chart('container-line-01-02', {
+			title: { text: '',}, credits: {enabled: false},
+			xAxis: {
+				tickWidth: 0,gridLineWidth: 0,tickmarkPlacement: '',
+				categories: ['간단', '보통', '복잡'],
+				lineColor:'#000',
+			},
+			yAxis: [ { // right y axis
+				min:0, max: 100,
+				gridLineWidth: 0,
+				opposite: true,
+				title: {text: null},
+				labels: {
+					enabled:false,
+				},
+				showFirstLabel: false
+			}],
+			legend: line_legend_val,
+			series: [{          
+				name: '평균치',
+				dashStyle: 'dot',color: '#999999',marker:{symbol:'circle'},
+				data: [50, 80, 30],
+			}, {
+				name: '식 지표',
+				color: '#4b9dc6',marker:{symbol:'circle'},
+				data: [30,50,10],
+			}],
+		});
+
+		Highcharts.chart('container-line-02-01', {
+			title: { text: '',}, credits: {enabled: false},
+			xAxis: {
+				tickWidth: 0,gridLineWidth: 0,tickmarkPlacement: '',
+				categories: ['간단', '보통', '복잡'],
+				lineColor:'#000',
+			},
+			yAxis: [ { // right y axis
+				min:0, max: 100,
+				gridLineWidth: 0,
+				opposite: true,
+				title: {text: null},
+				labels: {
+					enabled:false,
+				},
+				showFirstLabel: false
+			}],
+			legend: line_legend_val,
+			series: [{          
+				name: '평균치',
+				dashStyle: 'dot',color: '#999999',marker:{symbol:'circle'},
+				data: [50, 80, 30],
+			}, {
+				name: '답 지표',
+				color: '#7fc640',marker:{symbol:'circle'},
+				data: [60,90,60],
+			}],
+		});
+
+		Highcharts.chart('container-line-02-02', {
+			title: { text: '',}, credits: {enabled: false},
+			xAxis: {
+				tickWidth: 0,gridLineWidth: 0,tickmarkPlacement: '',
+				categories: ['간단', '보통', '복잡'],
+				lineColor:'#000',
+			},
+			yAxis: [ { // right y axis
+				min:0, max: 100,
+				gridLineWidth: 0,
+				opposite: true,
+				title: {text: null},
+				labels: {
+					enabled:false,
+				},
+				showFirstLabel: false
+			}],
+			legend: line_legend_val,
+			series: [{          
+				name: '평균치',
+				dashStyle: 'dot',color: '#999999',marker:{symbol:'circle'},
+				data: [50, 80, 30],
+			}, {
+				name: '답 지표',
+				color: '#7fc640',marker:{symbol:'circle'},
+				data: [30,50,10],
+			}],
+		});
+
+		Highcharts.chart('container-line-03-01', {
+			title: { text: '',}, credits: {enabled: false},
+			xAxis: {
+				tickWidth: 0,gridLineWidth: 0,tickmarkPlacement: '',
+				categories: ['간단', '보통', '복잡'],
+				lineColor:'#000',
+			},
+			yAxis: [ { // right y axis
+				min:0, max: 100,
+				gridLineWidth: 0,
+				opposite: true,
+				title: {text: null},
+				labels: {
+					enabled:false,
+				},
+				showFirstLabel: false
+			}],
+			legend: line_legend_val,
+			series: [{          
+				name: '평균치',
+				dashStyle: 'dot',color: '#999999',marker:{symbol:'circle'},
+				data: [50, 80, 30],
+			}, {
+				name: '과정 지표',
+				color: '#f7ac17',marker:{symbol:'circle'},
+				data: [60,90,60],
+			}],
+		});
+
+		Highcharts.chart('container-line-03-02', {
+			chart: {
+				//styledMode:true,
+			},
+			title: { text: '',}, credits: {enabled: false},
+			xAxis: {
+				tickWidth: 0,gridLineWidth: 0,tickmarkPlacement: '',
+				categories: ['간단', '보통', '복잡'],
+				lineColor:'#000',
+			},
+			yAxis: [ { // right y axis
+				min:0, max: 100,
+				gridLineWidth: 0,
+				opposite: true,
+				title: {text: null},
+				labels: {
+					enabled:false,
+				},
+				showFirstLabel: false
+			}],
+			legend: line_legend_val,
+			series: [{          
+				name: '평균치',
+				dashStyle: 'dot',color: '#999999',marker:{symbol:'circle'},
+				data: [50, 80, 30],
+			}, {
+				name: '과정 지표',
+				color: '#f7ac17',marker:{symbol:'circle'},
+				data: [30,50,10],
+			}],
+		});
+    	/** //문항 곤란도별 차트 **/
+		});
+	</script>
+</head>
+
+
+<body>
+	<div class="skip-navi">
+		<a href="#content">본문 바로가기</a>
+	</div>
+
+	<!-- WRAP -->
+	<div id="wrap">
+        <!-- Section01 - page6 - 계산능력 프로파일 -->
+        <div class="page left_line thin-margin wide">
+            <div class="tag">수능사고력 행동 영역 분석 <div class="bar"></div> <span class="point">SECTION 01</span></div>
+            <div class="">
+                <div class="mt-2">
+                    <div class="tab">계산능력 프로파일</div>
+                    <div class="desc type03 chart03">
+                        <div class="gray box type01">
+                            <div id="container-solid-speed"></div>
+                        </div>
+                        <div class="gray box type02">
+                            <div id="container-solid-accuracy"></div>
+                        </div>
+                        <div class="memo">
+                            <p>
+                                계산영역 문항들에 대한 풀이 내용을 토대로 측정한 계산 속도와 계산 정확도입니다.<br/>
+                                <b>계산 속도 지표란?</b> <br/>
+                                계산 속도란 계산 영역의 전체 문항 중 내가 푼 문항들의 비율로, 나의 계산 속도가 어느 정도 수준인지 판단할 수 있는 지표입니다.<br/>
+                                <b>계산 정확도 지표란?</b> <br/>
+                                풀이한 계산 영역 문항을 기준으로 맞힌 문항의 비율로, 내가 푼 계산 문항들의 정답률을 알 수 있는 지표입니다.<br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="tab">문항 곤란도별 비교</div>
+                    <ul class="list01">
+                        <li>문항의 특성 중 식의 복잡도, 답의 복잡도, 과정 복잡도에 따른 나의 점수와 평균 점수를 비교한 그래프입니다.<br/>
+                            (단계가 높을수록 식, 답, 풀이 과정에서의 숫자, 기호, 계산 등이 복잡해짐을 뜻합니다.)</li>
+                    </ul>
+                    <div class="desc flex column type05">
+                        <div class="desc flex column type05">
+                            <div class="header">
+                                <div class="v-title"></div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <div class="chart white">
+                                            <div>식의 복잡도</div>
+                                            <div>답의 복잡도</div>
+                                            <div>과정 복잡도</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="chart-line">
+                                <div class="v-title">점수</div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <div class="chart first">
+                                            <div><div id="container-line-01-01" class="chart-container"></div></div>
+                                            <div><div id="container-line-02-01" class="chart-container"></div></div>
+                                            <div><div id="container-line-03-01" class="chart-container"></div></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="chart-line">
+                                <div class="v-title">풀이시간</div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <div class="chart last">
+                                                <div><div id="container-line-01-02" class="chart-container"></div></div>
+                                                <div><div id="container-line-02-02" class="chart-container"></div></div>
+                                                <div><div id="container-line-03-02" class="chart-container"></div></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+        <!-- // Section01 - page6 - 계산능력 프로파일 -->
+    </div>
+	<!-- // WRAP -->
+	<script>
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPT 결과지 &copy;에이블에듀테크</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<script src="../../@resource/js/jquery-1.12.4.min.js"></script>
+	<script src="../../@resource/js/jquery-ui.js"></script>
+    <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
+    <script src="../../@resource/plugin/chart/"></script>
+    <script src="../../@resource/plugin/chart/highcharts.js"></script>
+    <script src="../../@resource/plugin/chart/highcharts-more.js"></script>
+    <script src="../../@resource/plugin/chart/modules/funnel.js"></script>
+<script src="../../@resource/plugin/chart/modules/solid-gauge.js"></script>
+<!-- 
+<script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+<script src="../../@resource/plugin/chart/modules/export-data.js"></script>
+-->
+<script src="../../@resource/plugin/chart/modules/accessibility.js"></script>
+
+    <script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+	<link rel="stylesheet" href="../../@resource/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../@resource/css/chart.css">
+    <link rel="stylesheet" href="../../@resource/css/chart-custom.css">
+    <link rel="stylesheet" href="../../@resource/css/common.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/** //문항반응 프로파일 차트 **/
+		Highcharts.chart('container-errorbar-01', {
+        chart: {
+        },
+        title: {
+            text: ''
+        },
+        xAxis: [{
+            tickWidth: 1,
+            gridLineWidth: 1,
+            tickInterval:0,
+            tickmarkPlacement: '',
+            lineColor:'#000',
+            gridLineColor:'#000000',
+            gridLineDashStyle:'dot',
+            categories: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35],
+            labels: {
+                step: 1,
+                style: {
+                    color: '#000000',
+                    fontSize: '10px',
+                }
+            },
+        }],
+        yAxis: {
+            title: null,
+            min:0, max:3,
+            labels: {
+                formatter: function() {
+                    if(this.value==0 || this.value>=3)
+                    {
+                        return "";
+                    }
+                    return this.value+"분";
+                },
+                style: {
+                    color: '#000000',
+                    fontSize: '10px',
+                }
+            },
+        },
+        series: [ 
+            {
+                name: '풀이시간',
+                type: 'errorbar',
+                data: [[1.1,1.5],[2.1,2.6],[2.1,2.6],[2.1,2.7],[2.1,2.8],[2.1,2.9],[1.1,1.11],[1.1,1.5],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[2.1,2.6],[2.1,2.7],[2.1,2.8],[2.1,2.9],[1.1,1.11],[1.1,1.5],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.11],[1.1,1.5],[1.1,1.5],[2.1,2.6],[1.1,1.11]],
+                tooltip: {
+                    pointFormat: '{point.low}-{point.high}'
+                }
+            },
+            {
+                name: '정답항목',
+                type:'spline',
+                color: '#4b9dc6',marker:{symbol:'circle'},
+                data: [null,2,2.3,2.4,null,null,1,null,0.75,1.2,1.6,null,1,1,2,2.2,1.2,2.5,1,2,null,2.4,1,2,1,0.5,0.75,1.2,null,2.3,1,1,2,2.2,1.2],
+                lineWidth: 0,
+                tooltip: {
+                    pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}</b> '
+                }
+            },
+            {
+                name: '오답항목',
+                type:'spline',
+                color: '#fe0f09',marker:{symbol:'circle'},
+                data: [1,null,null,null,1,2,null,0.5,null,null,null,2.3,null,null,null,null,null,null,null,null,2.3,null,null,null,null,null,null,null,1.6,null,null,null,null,null,null],
+                lineWidth: 0,
+                tooltip: {
+                    pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}</b> '
+                }
+            }
+        ]
+    });
+
+    Highcharts.chart('container-errorbar-02', {
+        chart: {
+        },
+        title: {
+            text: ''
+        },
+        xAxis: [{
+            tickWidth: 1,
+            gridLineWidth: 1,
+            tickInterval:0,
+            tickmarkPlacement: '',
+            lineColor:'#000',
+            gridLineColor:'#000000',
+            gridLineDashStyle:'dot',
+            categories: [36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64],
+            labels: {
+                step: 1,
+                style: {
+                    color: '#000000',
+                    fontSize: '10px',
+                }
+            },
+        }],
+        yAxis: {
+            title: null,
+            min:0, max:3,
+            labels: {
+                formatter: function() {
+                    if(this.value==0 || this.value>=3)
+                    {
+                        return "";
+                    }
+                    return this.value+"분";
+                },
+                style: {
+                    color: '#000000',
+                    fontSize: '10px',
+                }
+            },
+        },
+        series: [ 
+            {
+                name: '풀이시간',
+                type: 'errorbar',
+                data: [[1.1,1.5],[2.1,2.6],[2.1,2.6],[2.1,2.7],[2.1,2.8],[2.1,2.9],[1.1,1.11],[1.1,1.5],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[2.1,2.6],[2.1,2.7],[2.1,2.8],[2.1,2.9],[1.1,1.11],[1.1,1.5],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.5],[2.1,2.6],[1.1,1.11],[1.1,1.5],[1.1,1.5],[2.1,2.6],[1.1,1.11]],
+                tooltip: {
+                    pointFormat: '{point.low}-{point.high}'
+                }
+            },
+            {
+                name: '정답항목',
+                type:'spline',
+                color: '#4b9dc6',marker:{symbol:'circle'},
+                data: [null,2,2.3,2.4,null,null,1,null,0.75,1.2,1.6,null,1,1,2,2.2,1.2,2.5,1,2,null,2.4,1,2,1,0.5,0.75,1.2,null,2.3,1,1,2,2.2,1.2],
+                lineWidth: 0,
+                tooltip: {
+                    pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}</b> '
+                }
+            },
+            {
+                name: '오답항목',
+                type:'spline',
+                color: '#fe0f09',marker:{symbol:'circle'},
+                data: [1,null,null,null,1,2,null,0.5,null,null,null,2.3,null,null,null,null,null,null,null,null,2.3,null,null,null,null,null,null,null,1.6,null,null,null,null,null,null],
+                lineWidth: 0,
+                tooltip: {
+                    pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}</b> '
+                }
+            },
+        ]
+    });
+    /** //문항반응 프로파일 차트 **/
+
+		});
+	</script>
+</head>
+
+
+<body>
+	<div class="skip-navi">
+		<a href="#content">본문 바로가기</a>
+	</div>
+
+	<!-- WRAP -->
+	<div id="wrap">
+        <!-- Section01 - page7 - 문항반응 프로파일 -->
+        <div class="page left_line thin-margin wide">
+            <div class="tag">수능사고력 행동 영역 분석 <div class="bar"></div> <span class="point">SECTION 01</span></div>
+            <div class="">
+                <div class="mt-2">
+                    <div class="tab">문항반응 프로파일</div>
+                    <div class="mt-2">
+                        <div class="desc type06">
+                            <h2>계산 영역<br/>문항 반응 프로파일</h2>
+                            <div>
+                                <ul>
+                                    <li><i class="circle blue"></i>정답 항목</li>
+                                    <li><i class="circle red"></i>오답 항목</li>
+                                </ul>
+                            </div>
+                            <div class="memo">
+                                <h3>풀이시간<br/>
+                                    평균영역</h3>
+                                <p>
+                                    해당 문제를 푸는 데 걸리는 시간의 제1사분위수(상위 25%) 제 3사분위수 (상위 75%)를 나타낸 것으로 문제의 난이도를 참고할 수 있습니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="chart05 mt-2">
+                            <span class="title top">소요시간</span>
+                            <span class="title bottom">문항번호</span>
+                            <div id="container-errorbar-01" class="chart-container"></div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <div class="desc type06">
+                            <h2>이해 영역<br/>문항 반응 프로파일</h2>
+                            <div>
+                                <ul>
+                                    <li><i class="circle blue"></i>정답 항목</li>
+                                    <li><i class="circle red"></i>오답 항목</li>
+                                </ul>
+                            </div>
+                            <div class="memo">
+                                <h3>풀이시간<br/>
+                                    평균영역</h3>
+                                <p>
+                                    해당 문제를 푸는 데 걸리는 시간의 제1사분위수(상위 25%) 제 3사분위수 (상위 75%)를 나타낸 것으로 문제의 난이도를 참고할 수 있습니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="chart05 mt-2">
+                            <span class="title top">소요시간</span>
+                            <span class="title bottom">문항번호</span>
+                            <div id="container-errorbar-02" class="chart-container"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mt-2">
+                    
+                    
+                
+                </div>
+            </div>
+        </div>
+        <!-- // Section01 - page7 - 문항반응 프로파일 -->
+    </div>
+	<!-- // WRAP -->
+	<script>
+	</script>
+</body>
+
+</html>

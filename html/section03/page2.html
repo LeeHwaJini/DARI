@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPT 결과지 &copy;에이블에듀테크</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<script src="../../@resource/js/jquery-1.12.4.min.js"></script>
+	<script src="../../@resource/js/jquery-ui.js"></script>
+    <script src="../../@resource/plugin/chart/"></script>
+    <script src="../../@resource/plugin/chart/highcharts.js"></script>
+    <script src="../../@resource/plugin/chart/highcharts-more.js"></script>
+    <script src="../../@resource/plugin/chart/modules/funnel.js"></script>
+	<script src="../../@resource/plugin/chart/modules/solid-gauge.js"></script>
+    <script src="../../@resource/plugin/chart/modules/accessibility.js"></script>
+    <script src="../../@resource/plugin/chart/modules/exporting.js"></script>
+	<link rel="stylesheet" href="../../@resource/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../@resource/css/chart.css">
+    <link rel="stylesheet" href="../../@resource/css/chart-custom.css">
+    <link rel="stylesheet" href="../../@resource/css/common.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var university_line_val = { 
+				chart: { type: 'line',styledMode:true },
+				title: { text: '' },
+				xAxis: { categories: ['영재학교', '과학고', '자사고', '외고'], labels:{enabled:true}, gridLineWidth: 0,verticalAlign: 'top' },
+				yAxis: { title: { text: '' }, min:0, max: 11, gridLineWidth: 0, labels:{enabled:false}, reversed :true,
+					plotLines: [{color: '#000000',width: 1,value: 2.1,label: {useHTML:true,
+						text: '<span class="title">나의 등급</span><div class="value">2.1<span class="text">등급</span></div>',
+						formatter : function() { return '<span class="title">나의 등급</span><div class="value">'+this.options.value+'<span class="text">등급</span></div>'; },
+						align: 'left',
+						y:0,x:-10,
+					}}],
+				},
+				legend: { enabled: false }, tooltip: {enabled:false},
+				plotOptions: { 
+					line: { dataLabels: { enabled: true }, enableMouseTracking: true,color:'#fe7511',width:1,dashStyle: 'shortdot'},
+					series: { dataLabels: { enabled: true, useHTML: true,align: 'center',y: 75,
+							formatter : function() { var val = this.y; return '<span class="level">'+(val).toFixed(1) + '</span><span class="text">등급</span>' +'<br/><span>'+  this.key+'</span>'; }}
+					}
+				},
+				series: [{marker: {
+					symbol: 'square'
+				}}]
+			};
+
+			
+			Highcharts.chart('container-university-line11', $.extend(true, university_line_val,{
+				xAxis: { categories: ['대전제일고', '대전괴정고', '대전복수고', '대전관저고']},
+				yAxis: { min:1, max: 3,
+					plotLines: [{value: 2.7}]
+				},
+				series: [{data: [{ y: 2.1, name: "11.5%" }, { y: 2.2, name: "12.1%" },{ y: 2.2, name: "12.2%" }, { y: 2.2, name: "12.4%" }]
+				}]
+			}));
+			Highcharts.chart('container-university-line12', $.extend(true, university_line_val,{
+				xAxis: { categories: ['한밭고', '동방고', '대전구봉고', '대전둔원고']},
+				yAxis: { min:1, max: 3,
+					plotLines: [{value: 2.7}]
+				},
+				series: [{data: [{ y: 2.2, name: "12.8%" }, { y: 2.2, name: "12.9%" },{ y: 2.3, name: "13.6%" }, { y: 2.3, name: "13.7%" }]
+				}]
+			}));
+			Highcharts.chart('container-university-line13', $.extend(true, university_line_val,{
+				xAxis: { categories: ['대전만년고', '서대전여자고', '서일여자고', '서일고']},
+				yAxis: { min:0, max: 8,
+					plotLines: [{value: 2.7}]
+				},
+				series: [{data: [{ y: 2.5, name: "15.1%" }, { y: 2.5, name: "15.2%" },{ y: 2.6, name: "16.0%" }, { y: 2.7, name: "17.0%" }]
+				}]
+			}));
+			Highcharts.chart('container-university-line14', $.extend(true, university_line_val,{
+				xAxis: { categories: ['대전둔산여고', '서대전고', '대전대신고', '충남고']},
+				yAxis: { 
+					plotLines: [{value: 2.7}]
+				},
+				series: [{data: [{ y: 2.7, name: "17.7%" }, { y: 2.8, name: "18.3%" },{ y: 3.3, name: "25.0%" }, { y: 5.6, name: "66.5%" }]
+				}]
+			}));
+		});
+	</script>
+</head>
+
+<body>
+	<div class="skip-navi">
+		<a href="#content">본문 바로가기</a>
+	</div>
+
+	<!-- WRAP -->
+	<div id="wrap">
+        <!-- Section03 - page2 - 등급비교 -->
+        <div class="page left_line thin-margin wide section03">
+            <div class="tag">수능사고력 행동 영역 분석 <div class="bar"></div> <span class="point">SECTION 03</span></div>
+            <div class="w95">
+                <div class="mt-2">
+                    <div class="tab short text-short">학교 유형별 / 지역별 성적 등급 비교</div>
+                    <div class="desc type09">
+                        <div class="center flex column gap_10">
+                            <div class="shape icon big white university level">
+                                <div class="">2.7</div>
+                                <div class="title">나의 예상 등급</div>
+                                <div class="ico level"></div>
+                                <div class="pointer1"></div>
+                                <div class="pointer2"></div>
+                                <div class="pointer3"></div>
+                                <div class="pointer4"></div>
+                            </div>
+                            <span>선택지역 : 대전지역 전체</span>
+                        </div>
+                        <div>
+                        <h2>가장 좋은 등급을 받을 수 있는 학교는?</h2>
+                        <p>학교 알리미에 공시된 최근 3년간 학업 성취도와 진학 현황을 분석해<br/>
+                            학교별 학습 편차를 계산하였습니다.<br/>
+                            학교별 학습 편차에 가중치를 부여해, 전국단위 성적을 학교 단위 성적으로 변환하였습니다.<br/>
+                            선택한 지역구에 속해 있는 중, 고등학교 기준 등급이 좋은 순서로 나타내었습니다.<br/>
+                            ※ 학교 알리미에 공시된 정보가 없는 학교는 제외되었습니다.
+                        </p>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="desc type09">
+                            <h3>1~4위</h3>
+                        </div>
+                        <div class="chart10">
+                        <div id="container-university-line11" class="chart-container"></div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="desc type09">
+                            <h3>5~8위</h3>
+                        </div>
+                        <div class="chart10">
+                        <div id="container-university-line12" class="chart-container"></div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="desc type09">
+                            <h3>9~12위</h3>
+                        </div>
+                        <div class="chart10">
+                        <div id="container-university-line13" class="chart-container"></div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="desc type09">
+                            <h3>13~16위</h3>
+                        </div>
+                        <div class="chart10">
+                        <div id="container-university-line14" class="chart-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- // Section03 - page1 - 등급비교 -->
+    </div>
+	<!-- // WRAP -->
+	<script>
+	</script>
+</body>
+
+</html>
